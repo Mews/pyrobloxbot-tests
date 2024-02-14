@@ -2,4 +2,5 @@ import pyautogui as pg
 import keyboard as key
 
 while True:
-    print(pg.position())
+    if key.is_pressed("m"):
+        print(pg.position())
