@@ -45,13 +45,13 @@ def identify():
     return min(difference_values, key=lambda tpl: tpl[1])
 
 
-def reset_until_spawn_location(until, start_with_reset=True):
+def reset_until_spawn_location(*spawn_locations, start_with_reset=True):
     if start_with_reset:
         spawn = ""
     else:
          spawn = identify()[0]
 
-    while not spawn == until:
+    while not spawn in spawn_locations:
         reset_player()
         wait(4.5)
         spawn = identify()[0]
@@ -66,5 +66,3 @@ while True:
     wait(5)
     print(identify())
 """
-
-GETSCREENSHOTS()

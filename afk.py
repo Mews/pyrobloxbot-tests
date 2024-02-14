@@ -2,10 +2,17 @@ from pyrobloxbot import *
 from time import sleep as wait
 import pyautogui as pg
 from random import choice
+from spawn_location import reset_until_spawn_location
 
-BOSS_BAR_PIXEL_CORDS = (922, 100)
-BOSS_BAR_PIXEL_RGB = (0,0,0)
-ACTIONS_BEFORE_RESET = 10
+#Point(x=1033, y=134)
+#(39, 202, 28)
+#Point(x=767, y=137)
+#(39, 202, 28)
+#Point(x=867, y=135)
+#(39, 202, 28)
+BOSS_BAR_PIXEL_CORDS = (1033, 134)
+BOSS_BAR_PIXEL_RGB = (39,202,28)
+ACTIONS_BEFORE_RESET = 12
 
 def factory_raid_started():
     screen = pg.screenshot()
@@ -26,7 +33,7 @@ def factory_raid_started():
         return False
 
 
-def startAfk():
+def afk_until_factory_raid():
     i = 0
 
     while not factory_raid_started():
@@ -37,7 +44,5 @@ def startAfk():
         i+=1
         if i > ACTIONS_BEFORE_RESET:
             i = 0
-            reset_player()
+            reset_until_spawn_location("1", "2", "3")
             wait(5)
-
-startAfk()

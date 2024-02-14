@@ -7,3 +7,6 @@ while True:
         print(pg.position())
         print(pg.screenshot().getpixel(pg.position()))
         wait(0.5)
+
+Point(x=1033, y=134)
+(39, 202, 28)
