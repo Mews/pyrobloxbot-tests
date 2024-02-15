@@ -3,6 +3,7 @@ from time import sleep as wait
 import pyautogui as pg
 from random import choice
 from spawn_location import reset_until_spawn_location
+from windows_toasts import Toast, WindowsToaster
 
 #Point(x=1033, y=134)
 #(39, 202, 28)
@@ -14,6 +15,12 @@ BOSS_BAR_PIXEL_CORDS = (1033, 134)
 BOSS_BAR_PIXEL_RGB = (39,202,28)
 ACTIONS_BEFORE_RESET = 12
 
+def notify_factory_raid():
+    toaster = WindowsToaster("Factory raid")
+
+    toast = Toast(["There is a factory raid starting!"])
+    toaster.show_toast(toast)
+
 def factory_raid_started():
     screen = pg.screenshot()
 
@@ -21,13 +28,17 @@ def factory_raid_started():
 
     if boss_bar_pixel == BOSS_BAR_PIXEL_RGB:
         #Move camera to confirm pixel color is from boss bar
-        hold_keyboard_action("right", 2)
+        hold_keyboard_action("right", duration=1)
 
         screen = pg.screenshot()
 
         boss_bar_pixel = screen.getpixel(BOSS_BAR_PIXEL_CORDS)
 
-        return boss_bar_pixel == BOSS_BAR_PIXEL_RGB
+        if boss_bar_pixel== BOSS_BAR_PIXEL_RGB:
+            
+            return True
+        else:
+            return False
 
     else:
         return False
@@ -38,7 +49,7 @@ def afk_until_factory_raid():
 
     while not factory_raid_started():
         jump()
-        walk(choice(("f", "b", "l", "r")), 1)
+        walk(choice(("b", "l", "r")), 1)
         wait(1)
 
         i+=1
