@@ -4,6 +4,7 @@ import pyautogui as pg
 from random import choice
 from spawn_location import reset_until_spawn_location
 from windows_toasts import Toast, WindowsToaster
+from datetime import datetime
 
 #Point(x=1033, y=134)
 #(39, 202, 28)
@@ -16,6 +17,8 @@ BOSS_BAR_PIXEL_RGB = (39,202,28)
 ACTIONS_BEFORE_RESET = 12
 
 def notify_factory_raid():
+    print("Found factory raid at", datetime.now().time())
+
     toaster = WindowsToaster("Factory raid")
 
     toast = Toast(["There is a factory raid starting!"])
@@ -35,7 +38,7 @@ def factory_raid_started():
         boss_bar_pixel = screen.getpixel(BOSS_BAR_PIXEL_CORDS)
 
         if boss_bar_pixel== BOSS_BAR_PIXEL_RGB:
-            
+            notify_factory_raid()
             return True
         else:
             return False
