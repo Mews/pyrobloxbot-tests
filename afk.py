@@ -52,7 +52,7 @@ def afk_until_factory_raid():
 
     while not factory_raid_started():
         jump()
-        walk(choice(("b", "l", "r")), 1)
+        walk(choice(("b", "l", "r")), duration=1)
         wait(1)
 
         i+=1
