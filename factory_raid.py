@@ -47,5 +47,3 @@ def store_fruits():
     for i in range(2):
         bot.ui_navigate_down()
     bot.ui_click()
-
-store_fruits()
