@@ -45,5 +45,7 @@ def store_fruits():
     bot.UI_NAV_KEY = "`"
     bot.toggle_ui_navigation()
     for i in range(2):
+        wait(1)
         bot.ui_navigate_down()
+        wait(1)
     bot.ui_click()
