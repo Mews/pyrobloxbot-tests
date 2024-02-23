@@ -31,7 +31,7 @@ def switch_server():
     tries = 0
 
     while not switched_server:
-        join_button_coords = pg.locateAllOnScreen("moneyfarm/join.jpg", confidence=0.8)
+        join_button_coords = pg.locateAllOnScreen("moneyfarm/join.jpg", confidence=0.7)
 
         for box in join_button_coords:
             center = (box.left+(box.width//2), box.top+(box.height//2))
@@ -50,7 +50,6 @@ def switch_server():
 
             except pg.ImageNotFoundException:
                 switched_server = True
-                break
         
         #Scroll down
         kb = Controller()
@@ -98,11 +97,17 @@ def wait_for_game_to_load():
 
 
 def main():
+    servers_visited = 0
     while True:
         wait_for_game_to_load()
 
         #Pick marines
-        mega_click(pg.locateCenterOnScreen("moneyfarm/marine_join.jpg", confidence=0.7))
+        while True:
+            try:
+                mega_click(pg.locateCenterOnScreen("moneyfarm/marine_join.jpg", confidence=0.7))
+                break
+            except pg.ImageNotFoundException:
+                pass
         #bot.toggle_ui_navigation()
         #bot.ui_navigate_left()
         #bot.ui_click()
@@ -116,5 +121,8 @@ def main():
         grab_chests()
 
         switch_server()
+
+        servers_visited += 1
+        print("Servers visited:", servers_visited)
 
 main()
