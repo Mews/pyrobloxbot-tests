@@ -102,6 +102,9 @@ def main():
     while True:
         wait_for_game_to_load()
 
+        servers_visited += 1
+        print("Servers visited:", servers_visited)
+
         #Pick marines
         while True:
             try:
@@ -123,7 +126,5 @@ def main():
 
         switch_server()
 
-        servers_visited += 1
-        print("Servers visited:", servers_visited)
 
 main()
