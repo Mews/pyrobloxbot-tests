@@ -37,7 +37,7 @@ def switch_server():
             #center = (box.left+(round(box.width/2)), box.top+(round(box.height/2)))
             center = (box.left+10, box.top+5)
             mega_click(center)
-            center = (box.left+10, box.top-5)
+            center = (box.left+10, box.top-10)
             mega_click(center)
 
             wait(2)
@@ -53,6 +53,7 @@ def switch_server():
 
             except pg.ImageNotFoundException:
                 switched_server = True
+                break
         
         #Scroll down
         kb = Controller()
