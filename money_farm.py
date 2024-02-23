@@ -34,7 +34,8 @@ def switch_server():
         join_button_coords = pg.locateAllOnScreen("moneyfarm/join.jpg", confidence=0.7)
 
         for box in join_button_coords:
-            center = (box.left+(box.width//2), box.top+(box.height//2))
+            #center = (box.left+(round(box.width/2)), box.top+(round(box.height/2)))
+            center = (box.left+10, box.top+5)
             mega_click(center)
 
             wait(2)
