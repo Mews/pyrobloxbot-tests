@@ -4,7 +4,7 @@ import pyrobloxbot as bot
 import pyautogui as pg
 import pydirectinput as dinput
 from pynput.keyboard import Key, Controller
-
+import os
 
 bot.UI_NAV_KEY = "\\"
 TRIES_TIL_SCROLL = 4
@@ -110,6 +110,7 @@ def main():
         wait_for_game_to_load()
 
         servers_visited += 1
+        os.system("cls")
         print("Servers visited:", servers_visited)
 
         #Pick marines
