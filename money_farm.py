@@ -8,6 +8,7 @@ from pynput.keyboard import Key, Controller
 
 bot.UI_NAV_KEY = "\\"
 TRIES_TIL_SCROLL = 4
+GAME_ID = 2753915549
 
 @bot.require_focus
 def mega_click(coords, relx=20, rely=0):
@@ -101,7 +102,10 @@ def wait_for_game_to_load():
 
 
 def main():
+    bot.launch_game(GAME_ID)
+    
     servers_visited = 0
+
     while True:
         wait_for_game_to_load()
 
@@ -127,7 +131,10 @@ def main():
         
         grab_chests()
 
-        switch_server()
+        #switch_server()
+        bot.leave_game()
+        wait(1)
+        bot.launch_game(GAME_ID)
 
 
 main()
