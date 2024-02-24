@@ -5,6 +5,7 @@ import pyautogui as pg
 import pydirectinput as dinput
 from pynput.keyboard import Key, Controller
 import os
+import traceback
 
 bot.UI_NAV_KEY = "\\"
 TRIES_TIL_SCROLL = 4
@@ -137,5 +138,8 @@ def main():
         wait(1)
         bot.launch_game(GAME_ID)
 
-
-main()
+try:
+    main()
+except Exception as exc:
+    with open("ERROR LOG "+str(datetime.now())) as f:
+        f.write(traceback.format_exc())
