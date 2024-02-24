@@ -134,8 +134,8 @@ def main():
         grab_chests()
 
         #switch_server()
-        bot.leave_game()
-        wait(1)
+        #bot.leave_game()
+        #wait(1)
         bot.launch_game(GAME_ID)
 
 try:
