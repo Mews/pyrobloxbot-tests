@@ -7,6 +7,7 @@ from pynput.keyboard import Key, Controller
 import os
 import traceback
 
+#ESTIMATE 89400 per hour
 bot.UI_NAV_KEY = "\\"
 TRIES_TIL_SCROLL = 4
 GAME_ID = 2753915549
