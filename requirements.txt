@@ -1,2 +1,12 @@
-pyrobloxbot
-pyautogui
+Desktopmagic==14.3.11
+easyocr==1.7.1
+keyboard==0.13.5
+Pillow==10.1.0
+Pillow==10.2.0
+PyAutoGUI==0.9.54
+PyDirectInput==1.0.4
+PyGetWindow==0.0.9
+pynput==1.7.6
+pyrobloxbot==1.0.9
+PyScreeze==0.1.30
+Windows_Toasts==1.0.1
