@@ -83,13 +83,20 @@ def store_fruit():
 def walk_to_factory():
     bot.walk_right(4)
 
-    bot.key_down("w")
-    bot.jump(2, delay=0.1)
-    wait(1.3)
-    bot.key_up("w")
+    bot.jump(3)
+    wait(0.1)
+    bot.walk_forward(1.75)
 
     bot.walk_right(1.5)
-    bot.walk("f", "r", duration=8.7)
+    bot.key_down("w")
+    bot.key_down("d")
+    for i in range(8):
+        bot.press_key("q")
+        wait(0.5)
+    bot.key_up("w")
+    bot.key_up("d")
+    bot.walk_forward(2)
+    bot.walk_right(0.25)
 
 def kill_core():
     bot.walk("f", "r", duration=2.15)
@@ -146,3 +153,4 @@ def main_loop():
         wait(10)
 
 main_loop()
+#walk_to_factory()
