@@ -5,7 +5,6 @@ MAKE SURE THAT:
 - YOU HAVE BUDDHA EQUIPED
 - YOU DIDNT OPEN THE MENU
 - YOU TURNED YOUR SENSITIVITY DOWN
-- YOU HAVE AURA ON
 - YOU HAVE HUNTER CAPE EQUIPED
 - YOUR HOME IS IN CAFE
 - FRUIT IS SLOT 2
@@ -106,7 +105,7 @@ def kill_core():
     bot.press_key("z")
     wait(2)
     bot.jump(5, 0.1)
-    bot.walk("f", "r", duration=0.15)
+    bot.walk("f", "r", duration=0.5)
     bot.equip_slot(3)
     while raid_started():
         mouse1()
@@ -119,10 +118,12 @@ def main_loop():
     print("Starting with reset")
     bot.reset_player()
     wait(10)
+    bot.press_key("j")
 
     while True:
         print("Afking")
         #Move around until raid starts
+        bot.walk_forward(0.29)
         while not raid_started():
             afk_move()
             wait(1)
@@ -140,12 +141,18 @@ def main_loop():
         bot.equip_slot(2)
         print("Logging screenshot")
         log_screen()
+        tp_home()
         print("Trying to store fruit")
         bot.equip_slot(1)
         bot.equip_slot(1)
         store_fruit()
         print("Trying to drop fruit")
-        bot.walk_back(3)
+        bot.walk_left(4)
+        bot.key_down("w")
+        bot.jump(3, 0.1)
+        wait(0.2)
+        bot.key_up("w")
+        bot.walk("f", "l", duration=0.3)
         drop_fruit()
         print("Reseting player")
         wait(2)
@@ -153,4 +160,3 @@ def main_loop():
         wait(10)
 
 main_loop()
-#walk_to_factory()
