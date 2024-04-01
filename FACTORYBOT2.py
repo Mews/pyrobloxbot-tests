@@ -23,8 +23,10 @@ import pyrobloxbot as bot
 import pyscreeze as screeze
 import pyautogui as pg
 
-def tp_home():
+def tp_home(fruit_on_hotbar=False):
     for i in range(5):
+        bot.ui_navigate_left()
+    if fruit_on_hotbar:
         bot.ui_navigate_left()
     
     for i in range(2):
@@ -95,10 +97,10 @@ def walk_to_factory():
     bot.key_up("w")
     bot.key_up("d")
     bot.walk_forward(2)
-    bot.walk_right(0.25)
+    bot.walk_right(0.4)
 
 def kill_core():
-    bot.walk("f", "r", duration=2.15)
+    bot.walk("f", "r", duration=2.4)
     bot.walk("b", "l", duration=0)
     bot.equip_slot(2)
     bot.jump(3, 0.1)
@@ -133,7 +135,7 @@ def main_loop():
         print("Moving to factory")
         walk_to_factory()
         print("Waiting for door to open")
-        wait(20)
+        wait(5)
         print("Killing core")
         kill_core()
         bot.equip_slot(2)
@@ -141,7 +143,7 @@ def main_loop():
         bot.equip_slot(2)
         print("Logging screenshot")
         log_screen()
-        tp_home()
+        tp_home(fruit_on_hotbar=True)
         print("Trying to store fruit")
         bot.equip_slot(1)
         bot.equip_slot(1)
