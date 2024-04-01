@@ -23,10 +23,8 @@ import pyrobloxbot as bot
 import pyscreeze as screeze
 import pyautogui as pg
 
-def tp_home(fruit_on_hotbar=False):
-    for i in range(5):
-        bot.ui_navigate_left()
-    if fruit_on_hotbar:
+def tp_home():
+    for i in range(6):
         bot.ui_navigate_left()
     
     for i in range(2):
@@ -143,7 +141,7 @@ def main_loop():
         bot.equip_slot(2)
         print("Logging screenshot")
         log_screen()
-        tp_home(fruit_on_hotbar=True)
+        tp_home()
         print("Trying to store fruit")
         bot.equip_slot(1)
         bot.equip_slot(1)
