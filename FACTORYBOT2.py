@@ -142,6 +142,7 @@ def main_loop():
         print("Logging screenshot")
         log_screen()
         tp_home()
+        wait(7)
         print("Trying to store fruit")
         bot.equip_slot(1)
         bot.equip_slot(1)
