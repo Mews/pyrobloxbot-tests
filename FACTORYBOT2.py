@@ -89,13 +89,11 @@ def walk_to_factory():
     bot.walk_right(1.5)
     bot.key_down("w")
     bot.key_down("d")
-    for i in range(8):
+    for i in range(9):
         bot.press_key("q")
         wait(0.5)
     bot.key_up("w")
     bot.key_up("d")
-    bot.walk_forward(2)
-    bot.walk_right(0.4)
 
 def kill_core():
     bot.walk("f", "r", duration=2.4)
