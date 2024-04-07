@@ -1,3 +1,14 @@
+import pyrobloxbot as bot
+import sys
+
+input("TEST UI NAVIGATION...")
+bot.toggle_ui_navigation()
+ans = input("Did ui navigation mode turn on? (y\\n): ").lower().rstrip().lstrip()
+if ans == "n":
+    sys.exit("Restart the computer")
+elif ans == "y":
+    bot.toggle_ui_navigation()
+
 print("""
 MAKE SURE THAT:
 - YOU'RE MARINE
@@ -19,7 +30,6 @@ from time import sleep as wait
 import time
 import random
 import datetime
-import pyrobloxbot as bot
 import pyscreeze as screeze
 import pyautogui as pg
 
