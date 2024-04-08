@@ -32,6 +32,8 @@ import random
 import datetime
 import pyscreeze as screeze
 import pyautogui as pg
+import reconnect
+import autoit
 
 def tp_home():
     for i in range(6):
@@ -133,9 +135,19 @@ def main_loop():
         #Move around until raid starts
         bot.walk_forward(0.29)
         while not raid_started():
+            if reconnect.lost_connection():
+                print("\033[91m"+"LOST CONNECTION AT", str(datetime.datetime.now())+"\033[0m")
+                reconnect.reconnect()
+                print("\033[92m"+"Reconnected at", str(datetime.datetime.now())+"\033[0m")
+                wait(1)
+                autoit.mouse_wheel("up", 100) #Zoom in to first person
+                wait(0.5)
+                bot.toggle_shift_lock()
+                return None
+
             afk_move()
             wait(1)
-        print("Found raid at", str(datetime.datetime.now()))
+        print("\033[36m"+"Found raid at", str(datetime.datetime.now())+"\033[0m")
         tp_home()
         wait(7)
         print("Moving to factory")
@@ -168,4 +180,5 @@ def main_loop():
         bot.reset_player()
         wait(10)
 
-main_loop()
+while True:
+    main_loop()
