@@ -23,8 +23,14 @@ def reconnect(team="marine"):
 
     wait(3)
 
-    x, y = pg.locateCenterOnScreen("reconnect.png", confidence=0.9)
-    autoit.mouse_click(x=x, y=y)
+    while True:
+        try:
+            x, y = pg.locateCenterOnScreen("reconnect.png", confidence=0.9)
+        except pg.ImageNotFoundException:
+            pass
+        else:
+            autoit.mouse_click(x=x, y=y)
+            break
 
     wait(1)
     
