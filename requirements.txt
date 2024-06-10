@@ -1,6 +1,6 @@
 Desktopmagic==14.3.11
 keyboard==0.13.5
-Pillow==10.2.0
+Pillow==10.3.0
 PyAutoGUI==0.9.54
 PyDirectInput==1.0.4
 PyGetWindow==0.0.9
